@@ -35,16 +35,16 @@ public class Person {
         return buildFamilyTree();
     }
 
-    public String buildFamilyTree() {
+    private String buildFamilyTree() {
         String tree = name;
         if (father != null || mother != null) {
             tree += " ";
-        }
-        if (father != null) {
-            tree += father.buildFamilyTree();
-        }
-        if (mother != null) {
-            tree +=  "-" +  mother.buildFamilyTree();
+            if (father != null) {
+                tree += father.buildFamilyTree();
+            }
+            if (mother != null) {
+                tree += " - " + mother.buildFamilyTree();
+            }
         }
         return tree;
     }
