@@ -13,11 +13,15 @@ public class Main {
 
         alma.setFather(bela);
         alma.setMother(cecil);
+
         bela.setFather(denes);
         bela.setMother(emoke);
+
         cecil.setFather(ferenc);
         cecil.setMother(gyongyi);
 
-        System.out.println(alma.getFamilyTree());
+        alma.printFamilyTree();
+
+
     }
 }

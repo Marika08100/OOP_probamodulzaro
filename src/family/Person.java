@@ -6,11 +6,9 @@ public class Person {
     private Person mother;
     private final int birthYear;
 
-    public Person(String name,int birthYear) {
+    public Person(String name, int birthYear) {
         this.name = name;
         this.birthYear = birthYear;
-        this.father = null;
-        this.mother = null;
     }
 
     public String getName() {
@@ -37,22 +35,31 @@ public class Person {
         return birthYear;
     }
 
-    public String getFamilyTree() {
-        return buildFamilyTree();
+    public void printFamilyTree(){
+        System.out.print("Anyai csaladfa: ");
+        printFamilyMotherTree();
+
+        System.out.print("Apai csaladfa: ");
+        printFamilyFatherTree();
     }
 
-    private String buildFamilyTree() {
-        String tree = name;
-        if (father != null || mother != null) {
-            tree += " ";
-            if (father != null) {
-                tree += father.buildFamilyTree();
-            }
-            if (mother != null) {
-                tree += " - " + mother.buildFamilyTree();
-            }
+    public void printFamilyMotherTree() {
+        if (mother == null) {
+            System.out.println(name + " - ");
+        } else {
+            System.out.println(mother.getName() + " " + father.getName());
+            mother.printFamilyMotherTree();
         }
-        return tree;
+
+    }
+    public void printFamilyFatherTree() {
+        if(father == null){
+            System.out.println(getName() + " - ");
+        }else{
+            System.out.println(father.getName() + " " + mother.getName());
+            father.printFamilyFatherTree();
+        }
+
     }
 
     @Override
