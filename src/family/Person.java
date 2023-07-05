@@ -4,9 +4,11 @@ public class Person {
     private final String name;
     private Person father;
     private Person mother;
+    private final int birthYear;
 
-    public Person(String name) {
+    public Person(String name,int birthYear) {
         this.name = name;
+        this.birthYear = birthYear;
         this.father = null;
         this.mother = null;
     }
@@ -31,6 +33,10 @@ public class Person {
         this.mother = mother;
     }
 
+    public int getBirthYear() {
+        return birthYear;
+    }
+
     public String getFamilyTree() {
         return buildFamilyTree();
     }
@@ -47,5 +53,15 @@ public class Person {
             }
         }
         return tree;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", father=" + father +
+                ", mother=" + mother +
+                ", birthYear=" + birthYear +
+                '}';
     }
 }
